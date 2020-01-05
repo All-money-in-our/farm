@@ -45,8 +45,8 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.(less)$/;
+const lessModuleRegex = /\.module\.(less)$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -372,19 +372,20 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+
                 plugins: [
-                  [
-                    require.resolve('babel-plugin-named-asset-import'),
-                    {
-                      loaderMap: {
-                        svg: {
-                          ReactComponent:
-                            '@svgr/webpack?-svgo,+titleProp,+ref![path]',
-                        },
-                      },
-                    },
-                  ],
+					["import", { "libraryName": "antd", style: true }],
+					[
+						require.resolve('babel-plugin-named-asset-import'),
+						{
+						loaderMap: {
+							svg: {
+							ReactComponent:
+								'@svgr/webpack?-svgo,+titleProp,+ref![path]',
+							},
+						},
+						},
+					],
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -414,7 +415,7 @@ module.exports = function(webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-                
+
                 // Babel sourcemaps are needed for debugging into node_modules
                 // code.  Without the options below, debuggers like VSCode
                 // show incorrect code and set breakpoints on the wrong lines.
@@ -454,18 +455,18 @@ module.exports = function(webpackEnv) {
                 },
               }),
             },
-            // Opt-in support for SASS (using .scss or .sass extensions).
-            // By default we support SASS Modules with the
-            // extensions .module.scss or .module.sass
+            // Opt-in support for LESS (using .scss or .less extensions).
+            // By default we support LESS Modules with the
+            // extensions .module.scss or .module.less
             {
-              test: sassRegex,
-              exclude: sassModuleRegex,
+              test: lessRegex,
+              exclude: lessModuleRegex,
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader'
+                'less-loader'
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -473,10 +474,10 @@ module.exports = function(webpackEnv) {
               // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
             },
-            // Adds support for CSS Modules, but using SASS
-            // using the extension .module.scss or .module.sass
+            // Adds support for CSS Modules, but using LESS
+            // using the extension .module.scss or .module.less
             {
-              test: sassModuleRegex,
+              test: lessModuleRegex,
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
@@ -485,7 +486,7 @@ module.exports = function(webpackEnv) {
                     getLocalIdent: getCSSModuleLocalIdent,
                   },
                 },
-                'sass-loader'
+                'less-loader'
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
