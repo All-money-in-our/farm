@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Icon } from 'antd';
 import styles from '../../style/Admin.module.less'
 import SlideNav from '../../component/SlideNav/SlideNav'
+import HeaderNav from '../../component/HeaderNav/HeaderNav'
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -24,12 +25,13 @@ class Admin extends Component {
 					<SlideNav></SlideNav>
 				</Sider>
 				<Layout>
-					<Header style={{ background: '#fff', padding: 0 }}>
+					<Header style={{ background: '#fff', padding: 0}}>
 						<Icon
 							className={styles.trigger}
 							type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
 							onClick={this.toggle}
 						/>
+						<HeaderNav className={styles.headerNav}></HeaderNav>
 					</Header>
 					<Content
 						style={{

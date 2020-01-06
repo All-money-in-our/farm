@@ -12,13 +12,13 @@ export default [
 		id: '1',
 		children: [
 			{
-				path: '/admin/section/sectionCreate',
-				name: '部门新增',
+				path: '/admin/section/sectionUpdate',
+				name: '现有部门管理',
 				id: '1-1'
 			},
 			{
-				path: '/admin/section/sectionUpdate',
-				name: '现有部门管理',
+				path: '/admin/section/sectionCreate',
+				name: '部门新增',
 				id: '1-2'
 			},
 		]
