@@ -42,7 +42,7 @@ class Admin extends Component {
 					>
 						{this.props.children}
 					</Content>
-					<Footer>小型农场管理系统</Footer>
+					<Footer style={{textAlign:"center"}}>小型农场管理系统</Footer>
 				</Layout>
 			</Layout>
 		);
