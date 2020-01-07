@@ -25,7 +25,7 @@ class Admin extends Component {
 					<SlideNav></SlideNav>
 				</Sider>
 				<Layout>
-					<Header style={{ background: '#fff', padding: 0}}>
+					<Header className={styles.header}>
 						<Icon
 							className={styles.trigger}
 							type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}

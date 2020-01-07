@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { getSelections, delSection } from '../../api/section'
 import styles from '../../style/Section.module.less'
 
-import { Table, Button, Pagination, Spin, Popconfirm, message } from 'antd'
+import { Table, Button, Pagination, Spin, Popconfirm, message, Drawer } from 'antd'
 
 const pageSize = 3;
 
@@ -47,17 +47,20 @@ class SectionCreate extends Component {
 			},
 			{
 				title: '操作',
-				dataIndex: '_id',
-				key: '_id',
-				render: _id => {
+				render: (data) => {
 					return (
 						<Fragment>
-							<Button type="primary" className={styles.btnprimary}>修改</Button>
+							<Button type="primary"
+								className={styles.btnprimary}
+								onClick={() => {
+									this.setState({ drawerShow: true, updataInfo: data })
+								}}
+							>修改</Button>
 							<Popconfirm
 								title='确定要删除本条数据吗？'
 								onConfirm={() => {
-									// console.log(this, _id)
-									this.delTableData(_id)
+									// console.log(this, data)
+									this.delTableData(data._id)
 								}}
 								okText='删除'
 								cancelText='取消'
@@ -86,13 +89,13 @@ class SectionCreate extends Component {
 		getSelections(nowPage, pageSize)
 			.then((res) => {
 				// console.log(res)
-				this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, spinning: false, page:res.list.page })
+				this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, spinning: false, page: res.list.page })
 			})
 	}
 	// 删除数据
-	delTableData(_id) {
+	delTableData(id) {
 		//  网络请求
-		delSection(_id).then(() => {
+		delSection(id).then(() => {
 			message.success('删除ok', 1)
 			window.location.reload()
 			// this.getTableData()
@@ -102,7 +105,7 @@ class SectionCreate extends Component {
 	}
 
 	render() {
-		let { sectionData, allCount, spinning, nowPage} = this.state
+		let { sectionData, allCount, spinning, nowPage, drawerShow } = this.state
 		return (
 			<div>
 				<Spin spinning={spinning} tip="Loading...">
@@ -121,7 +124,15 @@ class SectionCreate extends Component {
 					dafaultCurrent={nowPage}
 					onChange={(page) => {
 						this.getTableData(page)
-					}} />
+					}}
+				/>
+				<Drawer
+					closable={true}
+					onClose={() => { this.setState({ drawerShow: false }) }}
+					visible={drawerShow}
+				>
+
+				</Drawer>
 			</div>
 		)
 	}

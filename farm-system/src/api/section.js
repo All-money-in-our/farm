@@ -23,9 +23,20 @@ export const delSection = async (sectionId) => {
 }
 
 // 添加部门
-export const addSection = async (name, leader, duty, peopleCount, email, phone) => {
+export const addSection = async ({ name, leader, duty, peopleCount, email, phone }) => {
 	let url = `/hehe/v1/admin/section/addSection`
 	let result = await axios.post(url, { name, leader, duty, peopleCount, email, phone })
+	if (result.err === 0) {
+		return result
+	} else {
+		throw result
+	}
+}
+
+// 修改部门
+export const updateSection = async ({ _id, name, leader, duty, peopleCount, email, phone }) => {
+	let url = `/hehe/v1/admin/section/updateSection`
+	let result = await axios.post(url, { _id, name, leader, duty, peopleCount, email, phone })
 	if (result.err === 0) {
 		return result
 	} else {
