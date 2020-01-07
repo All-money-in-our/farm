@@ -1,7 +1,7 @@
 import axios from '../utils/axios'
 
 // 部门管理
-export const getSelections = async (page, pageSize) => {
+export const getSelections = async () => {
 	let url = `/hehe/v1/admin/section/getSections`
 	let result = await axios.post(url, { page, pageSize })
 	if (result.err === 0) {
