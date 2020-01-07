@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Divider, Tag } from 'antd';
+import { Table, Divider, Tag,Pagination } from 'antd';
 import {getSells} from '../../api/sell'
 
 const columns = [
@@ -31,37 +31,15 @@ const columns = [
     }
     ]
 
-// const dataSource = [
-//     {
-//         key: '1',
-//         types: '粮食作物',
-//         product: '水稻',
-//         time: '2010-01-07',
-//         yield: '20kg',
-//         price: '50',
-//     },
-//     {
-//         key: '2',
-//         types: '粮食作物',
-//         product: '水稻',
-//         time: '2010-01-07',
-//         yield: '20kg',
-//         price: '50',
-//     },
-//     {
-//         key: '3',
-//         types: '粮食作物',
-//         product: '水稻',
-//         time: '2010-01-07',
-//         yield: '20kg',
-//         price: '50',
-//     }
-// ]
 class Sell extends Component{
     componentDidMount(){
         getSells(1,4)
         .then((res)=>{
-            console.log(res)
+            console.log('调用数据成功',res)
+            this.setState({dataSource:res.list.sells})
+        })
+        .catch((err)=>{
+            console.log('接口出现错误',err)
         })
     }
     constructor(){
@@ -74,8 +52,9 @@ class Sell extends Component{
         let {dataSource} = this.state
         return(
             <div className='APP'>
-                <Table columns={columns} dataSource={dataSource} rowKey='key'>
+                <Table columns={columns} dataSource={dataSource} rowKey='key' pagination={false}>
                 </Table>
+                <Pagination defaultCurrent={1} total={50}></Pagination>
             </div>
         )
     }
