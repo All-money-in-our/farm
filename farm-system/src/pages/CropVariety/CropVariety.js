@@ -26,7 +26,8 @@ class CropVariety extends Component {
 				title: "ID",
                 dataIndex: "_id",
 				ellipsis: true,
-				align:"center"
+				align: "center"
+				
 			},
 			{
 				title: "名称",
@@ -114,8 +115,10 @@ class CropVariety extends Component {
 		
 		this.menu = (
 			<Menu>
-				{this.state.menus.map((item) => {
-                    return <Menu.Item onClick={() => {
+				{this.state.menus.map((item,index) => {
+					return <Menu.Item
+						key={index}
+						onClick={() => {
                         this.select(item)
                     }}>{item}</Menu.Item>;
 				})}
@@ -205,6 +208,7 @@ class CropVariety extends Component {
 				{/* 分页器，加载。。表格 */}
 				<Spin size="large" spinning={spinning}>
 					<Table
+						rowKey="_id"
 						dataSource={dataSource}
 						columns={this.columns}
 						pagination={false}

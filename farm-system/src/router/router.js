@@ -33,9 +33,9 @@ class AppRouter extends Component {
                                     <Route path='/admin/home' component={Home} ></Route>
                                     {/* <Route path='/admin/section' component={Section} ></Route> */}
                                     
-                                    <Route path='/admin/cropvariety' component={CropVariety} ></Route>
+                                    
                                     <Route path='/admin/cropvariety/list' component={CropVariety} ></Route>
-                                        <Route path='/admin/cropvariety/show' component={Show} ></Route>
+									<Route path='/admin/cropvariety/show' component={Show} ></Route>
                                    
 									<Route path='/admin/weather' component={Weather} ></Route>
 									<Route path='/admin/expend' component={Expend} ></Route>

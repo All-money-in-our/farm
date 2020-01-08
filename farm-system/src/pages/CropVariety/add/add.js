@@ -1,5 +1,5 @@
 import React, { Component ,Fragment} from 'react';
-import { Button, message,Input } from 'antd';
+import { Button, message,Input,Select } from 'antd';
 import { addCrop } from "../../../api/crop";
 import styles from "./add.css"
 console.log(styles)
@@ -9,8 +9,8 @@ export class add extends Component {
         this.state = {
             name: "",
             price: "",
-            cropType: "",
-            img:null
+            img:null,
+            cropType: "蔬菜",
         }
     }
     submit=()=> {
