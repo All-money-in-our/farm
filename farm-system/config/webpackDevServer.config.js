@@ -92,7 +92,7 @@ module.exports = function(proxy, allowedHost) {
 		  target:'http://10.60.14.60:3003',
 		  changeOrigin:true,
 		  pathRewrite:{"^/hehe":''}
-		}
+    }
 	  },
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {

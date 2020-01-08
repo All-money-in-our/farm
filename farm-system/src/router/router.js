@@ -3,7 +3,9 @@ import { HashRouter, NavLink, Route, Switch, Redirect } from 'react-router-dom';
 import Login from '../pages/Login/Login';
 import Admin from '../pages/Admin/Admin';
 import Home from '../pages/Home/Home'
-import Section from '../pages/Section/Section'
+// import Section from '../pages/Section/Section'
+import SectionCreate from '../pages/Section/sectionCreate'
+import SectionUpdate from '../pages/Section/sectionUpdate'
 import CropVariety from '../pages/CropVariety/CropVariety'
 import Weather from '../pages/Weather/Weather'
 import Expend from '../pages/Expend/Expend'
@@ -13,11 +15,11 @@ import Show from "../pages/CropVariety/show/show"
 
 // import { Breadcrumb, Alert } from 'antd';
 class AppRouter extends Component {
-    render() {
-        return (
-            <HashRouter>
-                {/* link */}
-                <NavLink to='login'></NavLink>
+	render() {
+		return (
+			<HashRouter>
+				{/* link */}
+				<NavLink to='login'></NavLink>
 
                 {/* route */}
                 <Switch>
@@ -29,7 +31,7 @@ class AppRouter extends Component {
                                 <Switch>
                                     <Redirect exact from='/admin' to='/admin/home'></Redirect>
                                     <Route path='/admin/home' component={Home} ></Route>
-                                    <Route path='/admin/section' component={Section} ></Route>
+                                    {/* <Route path='/admin/section' component={Section} ></Route> */}
                                     
                                     <Route path='/admin/cropvariety' component={CropVariety} ></Route>
                                     <Route path='/admin/cropvariety/list' component={CropVariety} ></Route>
@@ -39,13 +41,13 @@ class AppRouter extends Component {
 									<Route path='/admin/expend' component={Expend} ></Route>
 									<Route path='/admin/ysield' component={Ysield} ></Route>
 									<Route path='/admin/sell' component={Sell} ></Route>
-                                </Switch>
-                            </Admin>
-                        )
-                    }}></Route>
-                </Switch>
-            </HashRouter>
-        )
-    }
+								</Switch>
+							</Admin>
+						)
+					}}></Route>
+				</Switch>
+			</HashRouter>
+		)
+	}
 }
 export default AppRouter

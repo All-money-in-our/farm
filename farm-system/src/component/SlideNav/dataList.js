@@ -30,27 +30,27 @@ export default [
               ]
 	},
 	{
-        name: '气象管理',
-        icon: 'setting',
-        path: '/admin/weather',
-        id: '3'
+		name: '气象管理',
+		icon: 'setting',
+		path: '/admin/weather',
+		id: '3'
 	},
 	{
-        name: '消耗管理',
-        icon: 'setting',
-        path: '/admin/expend',
-        id: '4'
+		name: '消耗管理',
+		icon: 'setting',
+		path: '/admin/expend',
+		id: '4'
 	},
 	{
-        name: '产量管理',
-        icon: 'setting',
-        path: '/admin/ysield',
-        id: '5'
+		name: '产量管理',
+		icon: 'setting',
+		path: '/admin/ysield',
+		id: '5'
 	},
 	{
-        name: '销售管理',
-        icon: 'setting',
-        path: '/admin/sell',
-        id: '6'
+		name: '销售管理',
+		icon: 'setting',
+		path: '/admin/sell',
+		id: '6'
 	},
 ]

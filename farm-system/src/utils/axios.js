@@ -21,7 +21,7 @@ axios.interceptors.response.use(function (response) {
   let list=[-996,-997,-998,-999]
   if(list.indexOf(response.data.err)!==-1){
     // token 出问题了
-    console.log('token 出问题了')
+    console.log('token 出问题了',response.data.err)
     store.dispatch(ActionCreator.setTokenModal(true))
 
     return Promise.reject(response);
