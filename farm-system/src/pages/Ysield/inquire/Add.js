@@ -17,7 +17,6 @@ export class Add extends Component {
         return (
             <Fragment>
                 <Input addonBefore='名称' value={name} onChange={(e)=>{
-                    console.log(e.target.value)
                     this.setState({name:e.target.value})
                 }}></Input>
                 <br/>

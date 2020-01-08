@@ -3,6 +3,7 @@ import { Table, Form, Input, Icon, Button,Drawer, Pagination,Alert,Modal } from 
 import * as styles from './Inquire.module.less'
 import { getInquireList,getStateList,delInquireList } from '../../../api/Inquire'
 import Add from './Add'
+import Con from './Conll'
 const pageSize = 3
 export class Inquire extends Component {
     constructor() {
@@ -15,7 +16,9 @@ export class Inquire extends Component {
             nowPage: 1,//当前页数
             Stainquire:'',//状态查询
             visible:false,//抽屉的显示隐藏
+            madalvisible:false,//模态框
             allLit:0,
+            updataInfo:{},//当前数据
             columns: [
                 {
                     title: '名称',
@@ -41,12 +44,14 @@ export class Inquire extends Component {
                     title: '操作',
                     dataIndex: '_id',
                     key: '_id',
-                    render:(_id)=>{
+                    render:(data)=>{
                         return(
                             <div>
-                                <Button icon="setting" type="primary" ghost>配置</Button>
+                                <Button icon="setting" type="primary" ghost onClick={()=>{
+                                    this.setState({madalvisible:true,updataInfo:data})
+                                }}>配置</Button>
                                 <Button type="danger" ghost onClick={()=>{
-                                    delInquireList(_id)
+                                    delInquireList(data._id)
                                     .then((res)=>{})
                                     this.getTableData()
                                 }}>删除</Button>
@@ -65,7 +70,6 @@ export class Inquire extends Component {
                         sumrow+=Number(selectedRows[i].inventory)
                     }
                     this.setState({sum:sumrow})
-                    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
                 },
                 getCheckboxProps: record => ({
                     disabled: record.name === 'Disabled User', // Column configuration not to be checked
@@ -85,7 +89,6 @@ export class Inquire extends Component {
             })
     }
     fullScreen = () => {
-        console.log('fullscreen:', this.state.isFullScreen);
         if (!this.state.isFullScreen) {
             this.requestFullScreen();
         } else {
@@ -95,7 +98,6 @@ export class Inquire extends Component {
 
     //进入全屏
     requestFullScreen = () => {
-        console.log('requestFullScreen')
         var de = document.documentElement;
         if (de.requestFullscreen) {
             de.requestFullscreen();
@@ -108,7 +110,6 @@ export class Inquire extends Component {
 
     //退出全屏
     exitFullscreen = () => {
-        console.log('exitFullscreen')
         var de = document;
         if (de.exitFullscreen) {
             de.exitFullscreen();
@@ -137,7 +138,7 @@ export class Inquire extends Component {
         this.setState({visible:true})
     }
     render() {
-        let { columns, data,Stainquire ,nowPage,visible,addList,rowSelection,selectLength,sum} = this.state
+        let { columns, data,Stainquire ,nowPage,visible,addList,rowSelection,selectLength,sum,madalvisible,updataInfo} = this.state
         return (
             <div>
                 <Form layout="inline">
@@ -195,7 +196,17 @@ export class Inquire extends Component {
                         this.getTableData()
                     }}></Add>
                 </Drawer>
-                <Modal visible={false}>
+                <Modal visible={madalvisible} onOk={()=>{
+                    this.setState({madalvisible:false})
+                }}
+                onCancel={()=>{
+                    this.setState({madalvisible:false})
+                }}
+                >
+                    <Con updataInfo={updataInfo} showupdata={()=>{
+                        this.setState({madalvisible:false})
+                        this.getTableData()
+                    }}></Con>
                 </Modal>
             </div>
         );
