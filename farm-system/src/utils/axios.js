@@ -5,9 +5,10 @@ import ActionCreator from  '../store/actionCreator'
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
-  //从缓存获取token 添加
-  config.data.token=getItem('token')||''
   console.log(config)
+  
+  //从缓存获取token 添加
+     config.data.token=getItem('token')||''
   return config;
 }, function (error) {
   // Do something with request error

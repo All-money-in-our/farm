@@ -11,9 +11,13 @@ import Expend from '../pages/Expend/Expend'
 import Sell from '../pages/Sell/Sell'
 // import Addysield from '../pages/Ysield/add/AddYsield'
 // import Listysield from '../pages/Ysield/list/Ysield'
-const Addysield=loadable(()=>import('../pages/Ysield/add/AddYsield'))
-const Listysield=loadable(()=>import('../pages/Ysield/list/Ysield'))
-const Inquire=loadable(()=>import('../pages/Ysield/inquire/Inquire'))
+const Addysield = loadable(() => import('../pages/Ysield/add/AddYsield'))
+const Listysield = loadable(() => import('../pages/Ysield/list/Ysield'))
+const Inquire = loadable(() => import('../pages/Ysield/inquire/Inquire'))
+import Ysield from '../pages/Ysield/Ysield'
+import Show from "../pages/CropVariety/show/show"
+
+// import { Breadcrumb, Alert } from 'antd';
 class AppRouter extends Component {
     render() {
         return (
@@ -23,6 +27,7 @@ class AppRouter extends Component {
 
                 {/* route */}
                 <Switch>
+                    <Redirect exact from='/' to='/login'></Redirect>
                     <Redirect exact from='/' to='/login'></Redirect>
                     <Route path='/login' component={Login} ></Route>
                     <Route path='/admin' render={() => {
@@ -39,6 +44,14 @@ class AppRouter extends Component {
                                     <Route path='/admin/addysield' component={Addysield}></Route>
                                     <Route path='/admin/listysield' component={Listysield}></Route>
                                     <Route path='/admin/inquire' component={Inquire}></Route>
+                                    <Route path='/admin/sell' component={Sell} ></Route>
+                                    <Route path='/admin/cropvariety' component={CropVariety} ></Route>
+                                    <Route path='/admin/cropvariety/list' component={CropVariety} ></Route>
+                                    <Route path='/admin/cropvariety/show' component={Show} ></Route>
+
+                                    <Route path='/admin/weather' component={Weather} ></Route>
+                                    <Route path='/admin/expend' component={Expend} ></Route>
+                                    <Route path='/admin/ysield' component={Ysield} ></Route>
                                     <Route path='/admin/sell' component={Sell} ></Route>
                                 </Switch>
                             </Admin>
