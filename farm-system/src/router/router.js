@@ -11,11 +11,12 @@ import Expend from '../pages/Expend/Expend'
 import Sell from '../pages/Sell/Sell'
 // import Addysield from '../pages/Ysield/add/AddYsield'
 // import Listysield from '../pages/Ysield/list/Ysield'
+import Ysield from '../pages/Ysield/Ysield'
+import Show from "../pages/CropVariety/show/show"
 const Addysield = loadable(() => import('../pages/Ysield/add/AddYsield'))
 const Listysield = loadable(() => import('../pages/Ysield/list/Ysield'))
 const Inquire = loadable(() => import('../pages/Ysield/inquire/Inquire'))
-import Ysield from '../pages/Ysield/Ysield'
-import Show from "../pages/CropVariety/show/show"
+
 
 // import { Breadcrumb, Alert } from 'antd';
 class AppRouter extends Component {

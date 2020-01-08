@@ -3,7 +3,6 @@ import { Table, Form, Input, Icon, Button,Drawer, Pagination,Alert,Modal } from 
 import * as styles from './Inquire.module.less'
 import { getInquireList,getStateList,delInquireList } from '../../../api/Inquire'
 import Add from './Add'
-import Con from './Con'
 const pageSize = 3
 export class Inquire extends Component {
     constructor() {
@@ -48,7 +47,7 @@ export class Inquire extends Component {
                                 <Button icon="setting" type="primary" ghost>配置</Button>
                                 <Button type="danger" ghost onClick={()=>{
                                     delInquireList(_id)
-                                    .then((res)=>{console.log(res)})
+                                    .then((res)=>{})
                                     this.getTableData()
                                 }}>删除</Button>
                             </div>
@@ -82,7 +81,6 @@ export class Inquire extends Component {
     getTableData(nowPage = 1) {
         getInquireList(nowPage, pageSize)
             .then((res) => {
-                console.log(res)
                 this.setState({ data: res.list.inquire,addList:res.list.allCount})
             })
     }
@@ -197,8 +195,7 @@ export class Inquire extends Component {
                         this.getTableData()
                     }}></Add>
                 </Drawer>
-                <Modal visible={true}>
-                    <Con></Con>
+                <Modal visible={false}>
                 </Modal>
             </div>
         );

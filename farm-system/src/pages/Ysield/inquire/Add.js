@@ -28,7 +28,6 @@ export class Add extends Component {
                 <br/>
                 <br/>
                 状态：<Select value={sta} onChange={(e)=>{
-                    console.log(e)
                     this.setState({sta:e})
                 }}>
                     <Select.Option value="有库存">有库存</Select.Option>
