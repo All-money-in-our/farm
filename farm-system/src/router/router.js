@@ -7,9 +7,10 @@ import Section from '../pages/Section/Section'
 import CropVariety from '../pages/CropVariety/CropVariety'
 import Weather from '../pages/Weather/Weather'
 import Expend from '../pages/Expend/Expend'
+import Text from '../pages/Expend/text'
 import Sell from '../pages/Sell/Sell'
 import Ysield from '../pages/Ysield/Ysield'
-
+import Add from '../pages/Expend/add/add'
 class AppRouter extends Component {
     render() {
         return (
@@ -33,6 +34,7 @@ class AppRouter extends Component {
 									<Route path='/admin/expend' component={Expend} ></Route>
 									<Route path='/admin/ysield' component={Ysield} ></Route>
 									<Route path='/admin/sell' component={Sell} ></Route>
+                                    {/* <Route path='/admin/expend/text' component={Text}></Route> */}
                                 </Switch>
                             </Admin>
                         )
