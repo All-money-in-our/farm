@@ -9,13 +9,14 @@ import CropVariety from '../pages/CropVariety/CropVariety'
 import Weather from '../pages/Weather/Weather'
 import Expend from '../pages/Expend/Expend'
 import Sell from '../pages/Sell/Sell'
+import Ysield from '../pages/Ysield/Ysield'
+import Show from "../pages/CropVariety/show/show"
 // import Addysield from '../pages/Ysield/add/AddYsield'
 // import Listysield from '../pages/Ysield/list/Ysield'
 const Addysield = loadable(() => import('../pages/Ysield/add/AddYsield'))
 const Listysield = loadable(() => import('../pages/Ysield/list/Ysield'))
 const Inquire = loadable(() => import('../pages/Ysield/inquire/Inquire'))
-import Ysield from '../pages/Ysield/Ysield'
-import Show from "../pages/CropVariety/show/show"
+
 
 // import { Breadcrumb, Alert } from 'antd';
 class AppRouter extends Component {
@@ -35,7 +36,7 @@ class AppRouter extends Component {
 								<Switch>
 									<Redirect exact from='/admin' to='/admin/home'></Redirect>
 									<Route path='/admin/home' component={Home} ></Route>
-									{/* <Route path='/admin/section' component={Section} ></Route> */}
+									<Route path='/admin/section' component={Section} ></Route>
 
 									<Route path='/admin/cropvariety' component={CropVariety} ></Route>
 									<Route path='/admin/cropvariety/list' component={CropVariety} ></Route>
