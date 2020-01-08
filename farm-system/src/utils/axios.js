@@ -5,9 +5,10 @@ import ActionCreator from  '../store/actionCreator'
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
-  //从缓存获取token 添加
-  config.data.token=getItem('token')||''
   console.log(config)
+  
+  //从缓存获取token 添加
+     config.data.token=getItem('token')||''
   return config;
 }, function (error) {
   // Do something with request error
@@ -20,7 +21,7 @@ axios.interceptors.response.use(function (response) {
   let list=[-996,-997,-998,-999]
   if(list.indexOf(response.data.err)!==-1){
     // token 出问题了
-    console.log('token 出问题了')
+    console.log('token 出问题了',response.data.err)
     store.dispatch(ActionCreator.setTokenModal(true))
 
     return Promise.reject(response);

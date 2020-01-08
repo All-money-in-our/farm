@@ -1,0 +1,15 @@
+.crop_div_bg{
+    background-image:url("http://img1.imgtn.bdimg.com/it/u=420995576,2914577687&fm=15&gp=0.jpg" );  
+    background-size:cover;
+}
+.crop_button_add{
+    float:left;
+    margin-right: 100px;
+}
+.crop_drop_class{
+    float:left;
+    margin-right: 100px;
+}
+.crop_button_kw{
+    float: left;
+}

@@ -1,10 +1,60 @@
 import React, { Component } from 'react'
+import { Table, Divider, Tag,Pagination } from 'antd';
+import {getSells} from '../../api/sell'
+
+const columns = [
+    {
+        title: '销售类型',
+        dataIndex: 'types',
+        key: 'types',
+        // render: text => <a>{text}</a>,
+    },
+    {
+        title: '销售作物',
+        dataIndex: 'product',
+        // key: 'product',/
+    },
+    {
+        title: '销售时间',
+        dataIndex: 'time',
+        key: 'time',
+    },
+    {
+        title: '销售产量',
+        dataIndex: 'yield',
+        key: 'yield',
+    },
+    {
+        title: '销售价格',
+        dataIndex: 'price',
+        key: 'price',
+    }
+    ]
 
 class Sell extends Component{
+    componentDidMount(){
+        getSells(1,4)
+        .then((res)=>{
+            console.log('调用数据成功',res)
+            this.setState({dataSource:res.list.sells})
+        })
+        .catch((err)=>{
+            console.log('接口出现错误',err)
+        })
+    }
+    constructor(){
+        super()
+        this.state={
+            dataSource: []
+        }
+    }
     render(){
+        let {dataSource} = this.state
         return(
             <div className='APP'>
-                这是销售管理,可以从作物的销售品种(大豆、花生...)、销售吨数、销售时间等入手
+                <Table columns={columns} dataSource={dataSource} rowKey='key' pagination={false}>
+                </Table>
+                <Pagination defaultCurrent={1} total={50}></Pagination>
             </div>
         )
     }
