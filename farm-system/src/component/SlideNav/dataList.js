@@ -15,7 +15,19 @@ export default [
         name: '品种管理',
         icon: 'setting',
         path: '/admin/cropVariety',
-        id: '2'
+            id: '2',
+            children:[
+                {
+                  name:"品种列表",
+                  path:'/admin/cropVariety/list',
+                  id:'2-0'
+                },
+                {
+                  name:'商品数据展示',
+                  path:'/admin/cropVariety/show',
+                  id:'2-1'
+                }
+              ]
 	},
 	{
         name: '气象管理',

@@ -10,8 +10,7 @@ import Expend from '../pages/Expend/Expend'
 import Sell from '../pages/Sell/Sell'
 import Ysield from '../pages/Ysield/Ysield'
 import Show from "../pages/CropVariety/show/show"
-
-// import { Breadcrumb, Alert } from 'antd';
+import { Breadcrumb, Alert } from 'antd';
 class AppRouter extends Component {
     render() {
         return (
@@ -29,12 +28,9 @@ class AppRouter extends Component {
                                 <Switch>
                                     <Redirect exact from='/admin' to='/admin/home'></Redirect>
                                     <Route path='/admin/home' component={Home} ></Route>
-                                    <Route path='/admin/section' component={Section} ></Route>
-                                    
-                                    <Route path='/admin/cropvariety' component={CropVariety} ></Route>
+									<Route path='/admin/section' component={Section} ></Route>
                                     <Route path='/admin/cropvariety/list' component={CropVariety} ></Route>
-                                        <Route path='/admin/cropvariety/show' component={Show} ></Route>
-                                   
+                                    <Route path='/admin/cropvariety/show' component={Show} ></Route>
 									<Route path='/admin/weather' component={Weather} ></Route>
 									<Route path='/admin/expend' component={Expend} ></Route>
 									<Route path='/admin/ysield' component={Ysield} ></Route>
