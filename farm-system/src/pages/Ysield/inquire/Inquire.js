@@ -3,7 +3,6 @@ import { Table, Form, Input, Icon, Button,Drawer, Pagination,Alert,Modal } from 
 import * as styles from './Inquire.module.less'
 import { getInquireList,getStateList,delInquireList } from '../../../api/Inquire'
 import Add from './Add'
-import Con from './Con'
 const pageSize = 3
 export class Inquire extends Component {
     constructor() {
@@ -197,8 +196,7 @@ export class Inquire extends Component {
                         this.getTableData()
                     }}></Add>
                 </Drawer>
-                <Modal visible={true}>
-                    <Con></Con>
+                <Modal visible={false}>
                 </Modal>
             </div>
         );
