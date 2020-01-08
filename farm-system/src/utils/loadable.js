@@ -19,7 +19,7 @@ export default (AsyncComponet)=>{
     // 过度组件
     loading: Loading,
   });
-   
+
   return ()=>{
      return(<LoadableComponent></LoadableComponent>)
   }
