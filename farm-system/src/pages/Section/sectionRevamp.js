@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react';
-import {Table,Pagination,Spin,Button,Popconfirm, message} from 'antd'
+import {Button, message} from 'antd'
 import {UpdateGood} from  '../../../api/goods'
 
 

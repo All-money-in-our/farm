@@ -1,6 +1,6 @@
 // 路由懒加载的封装
 import Loadable from 'react-loadable';
-import  React,{Fragment} from 'react'
+import  React from 'react'
 // 创建过度组件 在组件没有加载完成的状态显示
  function Loading (){
    return(
@@ -19,7 +19,7 @@ export default (AsyncComponet)=>{
     // 过度组件
     loading: Loading,
   });
-   
+
   return ()=>{
      return(<LoadableComponent></LoadableComponent>)
   }
