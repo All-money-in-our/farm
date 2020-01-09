@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Layout, Icon, Modal } from 'antd';
 import ActionCreator from '../../store/actionCreator'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import styles from '../../style/Admin.module.less'
 import SlideNav from '../../component/SlideNav/SlideNav'
 import HeaderNav from '../../component/HeaderNav/HeaderNav'
@@ -22,7 +22,7 @@ class Admin extends Component {
 	};
 
 	render() {
-		let {tokenModal,setTokenModal} = this.props
+		let { tokenModal, setTokenModal } = this.props
 		return (
 			<Fragment>
 				<Layout className={styles.layout}>
@@ -46,6 +46,9 @@ class Admin extends Component {
 								background: '#fff',
 								minHeight: 280,
 								fontSize: '20px',
+								backgroundImage: "url('http://m.qpic.cn/psc?/V10nQreM48vGw8/AQcIL30w4PRNLA8O7NR*vP9SR9t*WONW8vTsjlSplf1VU750t9NmQkVgxF5bCc.g8op0YFYAtIC63bXXImbpEQTnOJ3Al8fqhc3McGiejKA!/b&bo=BAewBFoJQAYRB5I!&rf=viewer_4')",
+								backgroundSize: "100%",
+								backgroundRepeat: "no-repeat"
 							}}
 						>
 							{this.props.children}
