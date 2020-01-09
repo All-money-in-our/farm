@@ -40,7 +40,7 @@ class Admin extends Component {
 							background: '#fff',
 							minHeight: 280,
 							fontSize: '20px',
-							backgroundImage:"url('http://m.qpic.cn/psc?/V10nQreM48vGw8/AQcIL30w4PRNLA8O7NR*vP9SR9t*WONW8vTsjlSplf1VU750t9NmQkVgxF5bCc.gx13zl*mFCpkDJNPyZFPltjmQUExDUzV8cYq1M59zdDQ!/b&bo=BAewBFoJQAYRN6I!&rf=viewer_4')",
+							backgroundImage:"url('http://m.qpic.cn/psc?/V10nQreM3lGGmI/AQcIL30w4PRNLA8O7NR*vIZuhBrV60autc1ovm0TzdDNCrJKIjcoySUw0yquPFKXg6wdpjvwylhYWS*azRd4PtoFRxMxrNqNOFs*GiFWmnk!/b&bo=UAY4BAAAAAARB1o!&rf=viewer_4')",
 							backgroundSize:"100%",
 							backgroundRepeat:"no-repeat"
 						}}
