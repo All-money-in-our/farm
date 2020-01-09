@@ -8,10 +8,10 @@ class SectionRevamp extends Component {
 		super()
 		// 在组件创建的时候将接受到的props值解构给state
 		this.state = { ...props.updataInfo }
-		console.log(this)
+		// console.log(this)
 	}
 	componentWillReceiveProps(props) {
-		console.log('props改变', props)
+		// console.log('props改变', props)
 		// 当props改变用最新的数据修改状态值
 		this.setState({ ...props.updataInfo })
 	}
@@ -21,10 +21,10 @@ class SectionRevamp extends Component {
 			// this.props.refreshList()
 			window.location.reload()
 		})
-		console.log(this.state)
+		// console.log(this.state)
 	}
 	render() {
-		console.log(this)
+		// console.log(this)
 		let { _id, name, leader, duty, peopleCount, email, phone } = this.state
 		return (
 			<Fragment>
