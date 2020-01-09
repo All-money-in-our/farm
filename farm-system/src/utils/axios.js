@@ -2,20 +2,23 @@ import axios from 'axios'
 import {getItem} from '../utils/webStorage'
 import store from  '../store/store'
 import ActionCreator from  '../store/actionCreator'
-// Add a request interceptor
+
+// 添加一个请求拦截器
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
-  console.log(config)
-
   //从缓存获取token 添加
-     config.data.token=getItem('token')||''
-  return config;
+  if (config.url === '/weather/mojiweather/forecast.php') {
+    return config
+  } else {
+    config.data.token=getItem('token')||''
+    return config;
+  }
 }, function (error) {
   // Do something with request error
   return Promise.reject(error);
 });
 
-// Add a response interceptor
+// 添加一个响应拦截器
 axios.interceptors.response.use(function (response) {
   // Do something with response data
   let list=[-996,-997,-998,-999]
