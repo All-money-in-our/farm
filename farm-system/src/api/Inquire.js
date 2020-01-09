@@ -29,6 +29,17 @@ export const addInquireList = async ({name,desc,sta,inventory}) =>{
         throw result
     }
 }
+// 修改数据
+export const updateInquireList = async ({_id,name,desc,sta,inventory}) =>{
+    let url = '/hehe/v1/admin/inquire/updateInquire'
+    let foodId=_id
+    let result = await axios.post(url,{foodId,name,desc,sta,inventory})
+    if(result.err === 0){
+        return result
+    }else{
+        throw result
+    }
+}
 // 删除
 export const delInquireList = async (foodId) =>{
     let url = '/hehe/v1/admin/inquire/delInquire'

@@ -11,9 +11,9 @@ import CropVariety from '../pages/CropVariety/CropVariety'
 import Weather from '../pages/Weather/Weather'
 import Expend from '../pages/Expend/Expend'
 import Sell from '../pages/Sell/Sell'
-import Show from "../pages/CropVariety/show/show"
 // import Addysield from '../pages/Ysield/add/AddYsield'
 // import Listysield from '../pages/Ysield/list/Ysield'
+import Show from "../pages/CropVariety/show/show"
 const Addysield = loadable(() => import('../pages/Ysield/add/AddYsield'))
 const Listysield = loadable(() => import('../pages/Ysield/list/Ysield'))
 const Inquire = loadable(() => import('../pages/Ysield/inquire/Inquire'))

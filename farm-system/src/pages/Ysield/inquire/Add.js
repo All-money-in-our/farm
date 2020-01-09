@@ -17,7 +17,6 @@ export class Add extends Component {
         return (
             <Fragment>
                 <Input addonBefore='名称' value={name} onChange={(e)=>{
-                    console.log(e.target.value)
                     this.setState({name:e.target.value})
                 }}></Input>
                 <br/>
@@ -28,7 +27,6 @@ export class Add extends Component {
                 <br/>
                 <br/>
                 状态：<Select value={sta} onChange={(e)=>{
-                    console.log(e)
                     this.setState({sta:e})
                 }}>
                     <Select.Option value="有库存">有库存</Select.Option>
