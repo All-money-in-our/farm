@@ -4,15 +4,16 @@ import loadable from '../utils/loadable'
 import Login from '../pages/Login/Login';
 import Admin from '../pages/Admin/Admin';
 import Home from '../pages/Home/Home'
+// import Section from '../pages/Section/Section'
 import SectionCreate from '../pages/Section/sectionCreate'
 import SectionUpdate from '../pages/Section/sectionUpdate'
 import CropVariety from '../pages/CropVariety/CropVariety'
 import Weather from '../pages/Weather/Weather'
 import Expend from '../pages/Expend/Expend'
 import Sell from '../pages/Sell/Sell'
-import Show from "../pages/CropVariety/show/show"
 // import Addysield from '../pages/Ysield/add/AddYsield'
 // import Listysield from '../pages/Ysield/list/Ysield'
+import Show from "../pages/CropVariety/show/show"
 const Addysield = loadable(() => import('../pages/Ysield/add/AddYsield'))
 const Listysield = loadable(() => import('../pages/Ysield/list/Ysield'))
 const Inquire = loadable(() => import('../pages/Ysield/inquire/Inquire'))
@@ -32,6 +33,7 @@ class AppRouter extends Component {
 								<Switch>
 									<Redirect exact from='/admin' to='/admin/home'></Redirect>
 									<Route path='/admin/home' component={Home} ></Route>
+									{/* <Route path='/admin/section' component={Section} ></Route> */}
 									<Route path='/admin/section/sectionCreate' component={SectionCreate} ></Route>
 									<Route path='/admin/section/sectionUpdate' component={SectionUpdate} ></Route>
 									<Route path='/admin/cropvariety/list' component={CropVariety} ></Route>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { getSelections, delSection } from '../../api/section'
 import styles from '../../style/Section.module.less'
-
+import SectionRevamp from './sectionRevamp'
 import { Table, Button, Pagination, Spin, Popconfirm, message, Drawer } from 'antd'
 
 const pageSize = 3;
@@ -77,6 +77,7 @@ class SectionCreate extends Component {
 			nowPage: 1,//当前页数
 			allCount: 0,//总数据条数
 			sectionData: [],
+			updataInfo:{},
 		}
 	}
 	componentDidMount() {
@@ -105,7 +106,7 @@ class SectionCreate extends Component {
 	}
 
 	render() {
-		let { sectionData, allCount, spinning, nowPage, drawerShow } = this.state
+		let { sectionData, allCount, spinning, nowPage, drawerShow, updataInfo } = this.state
 		return (
 			<div>
 				<Spin spinning={spinning} tip="Loading...">
@@ -131,7 +132,15 @@ class SectionCreate extends Component {
 					onClose={() => { this.setState({ drawerShow: false }) }}
 					visible={drawerShow}
 				>
-
+					{/* 将要修改的数据 和刷新方法通过props传递子组件 */}
+					<SectionRevamp
+						updataInfo={updataInfo}
+						refreshList={() => {
+							// 收起抽屉
+							this.setState({ drawerShow: false })
+							// 更新完毕后刷新界面
+							this.getTableData()
+						}}></SectionRevamp>
 				</Drawer>
 			</div>
 		)
