@@ -6,7 +6,7 @@ import ActionCreator from  '../store/actionCreator'
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
   console.log(config)
-  
+
   //从缓存获取token 添加
      config.data.token=getItem('token')||''
   return config;
