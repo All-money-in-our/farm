@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Pagination, Spin, Button, Popconfirm, message } from 'antd'
+import { Button, message } from 'antd'
 import { updateSection } from '../../api/section'
 
 
@@ -18,7 +18,8 @@ class SectionRevamp extends Component {
 	submit = () => {
 		updateSection(this.state).then((data) => {
 			message.success('修改成功')
-			this.props.refreshList()
+			// this.props.refreshList()
+			window.location.reload()
 		})
 		console.log(this.state)
 	}

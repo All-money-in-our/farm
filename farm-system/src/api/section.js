@@ -43,3 +43,14 @@ export const updateSection = async ({ _id, name, leader, duty, peopleCount, emai
 		throw result
 	}
 }
+
+// 分部门查询
+export const getSectionsByType = async (name, page, pageSize) => {
+	let url = `/hehe/v1/admin/section/getSectionsByType`
+	let result = await axios.post(url, { name, page, pageSize })
+	if (result.err === 0) {
+		return result
+	} else {
+		throw result
+	}
+}
