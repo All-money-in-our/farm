@@ -26,12 +26,12 @@ class GoodsUpdate extends Component{
     let {_id,name, Consumptiontime, imgUrl, Consumptioncategory, number } = this.state
     return (
       <Fragment>
-        id:{_id}
+      
         <br/>
-        名称:<input type='text' value={name} onChange={(e)=>{this.setState({name:e.target.value}) }}/><br/>
-        时间:<input type='text' value={Consumptiontime} onChange={(e)=>{this.setState({Consumptiontime:e.target.value}) }}/><br/>
-        类型:<input type='text' value={Consumptioncategory} onChange={(e)=>{this.setState({Consumptioncategory:e.target.value}) }}/><br/>
-        数量:<input type='text' value={number} onChange={(e)=>{this.setState({number:e.target.value}) }}/><br/>
+        名称:<Input type='text' value={name} onChange={(e)=>{this.setState({name:e.target.value}) }}/><br/>
+        时间:<Input type='text' value={Consumptiontime} onChange={(e)=>{this.setState({Consumptiontime:e.target.value}) }}/><br/>
+        类型:<Input type='text' value={Consumptioncategory} onChange={(e)=>{this.setState({Consumptioncategory:e.target.value}) }}/><br/>
+        数量:<Input type='text' value={number} onChange={(e)=>{this.setState({number:e.target.value}) }}/><br/>
         缩略图 : <img src={imgUrl} width='100' height='80'/><br/>
         <input type='file' ref='file'/> 
         <button onClick={()=>{
