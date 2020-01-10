@@ -7,7 +7,7 @@ class Login extends Component {
   login = () => {
     let { getFieldsValue, validateFields } = this.props.form
     validateFields((err, data) => {
-      console.log(err, data)
+      // console.log(err, data)
       //err 前端的字段验证 true 不通过 null 没问题
       if (err) return message.error('输入有误,请重试!', 1)
       //字段验证ok 继续向下
