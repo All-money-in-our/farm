@@ -93,7 +93,11 @@ module.exports = function(proxy, allowedHost) {
 		  changeOrigin:true,
 		  pathRewrite:{"^/hehe":''}
     },
-   
+    '/weather':{
+		  target:'http://www.moji.com',
+		  changeOrigin:true,
+		  pathRewrite:{"^/weather":''}
+    }
 	  },
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {

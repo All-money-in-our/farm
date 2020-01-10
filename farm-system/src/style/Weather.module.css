@@ -36,7 +36,7 @@
 .weather .top_weather .top_weather_brief {
   line-height: 28px;
   padding: 5px 20px;
-  margin: 20px 30px 0 0;
+  margin: 30px 30px 0 0;
   border-radius: 28px;
   color: #fff;
   font-size: 18px;
@@ -81,7 +81,7 @@
 }
 .weather .top_weather .top_weather_hid.top_weather_hid_animation {
   transition: top 1s linear;
-  top: 59px;
+  top: 69px;
 }
 .weather .top_weather .top_weather_hid .top_forecast_title {
   padding: 15px;
