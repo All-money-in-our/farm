@@ -1,5 +1,5 @@
-import React, { Component,Fragment } from 'react';
-import {Table,Pagination,Spin,Button,Popconfirm, message,Input} from 'antd'
+import React, { Component } from 'react';
+import {Button, message,Input} from 'antd'
 import {AddGood} from  '../../../api/mei'
 class GoodsAdd extends Component{
   constructor(){
