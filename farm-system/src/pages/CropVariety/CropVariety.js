@@ -9,7 +9,7 @@ import {
 	message,
 	Popconfirm,
 	Drawer,
-	Menu, Dropdown,Button ,Input, 
+	Menu, Dropdown,Button 
 	
 } from "antd";
 import { getCrop, delCrop,getCropsByType,getCropsByKw } from "../../api/crop";
@@ -169,7 +169,7 @@ class CropVariety extends Component {
 		let {
 			dataSource,
 			allCount,
-			nowPage,
+			
 			spinning,
 			visible,
 			drawShow,
