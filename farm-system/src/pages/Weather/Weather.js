@@ -412,15 +412,15 @@ class Weather extends Component{
                     </div>
                     <div className={`${styles.top_weather_hid} ${this.state.weatherShow ? styles.top_weather_hid_animation : styles.top_weather_hid_animation_leave}`} onMouseEnter={this.toggleShow} onMouseLeave={this.toggleHide} >
                         <div className={styles.top_forecast_title}>
-                            <b>{weatherData.time.monthG}</b>
+                            <b>{weatherData.time.monthG}日</b>
                             <span>农历 {weatherData.time.monthN}</span>
-                            <a target="_blank" >更多</a>
+                            <a target="_blank" href="http://tianqi.moji.com/" >更多</a>
                         </div>
                         <div className={styles.top_forecast_list}>
                             <ul>
                                 {fiveDayData.map((item, index) => {
                                     return (
-                                        <a>
+                                        <a key={index}>
                                             <li>
                                                 <div className={styles.top_forecast_date}>
                                                     <p>{item.week}</p>
