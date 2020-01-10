@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 // 引入 echarts 主要文件
 import ReactEcharts from "echarts-for-react";
 // 引入样式文件
-import styles from './style/sellPart.module.less'
+import styles from '../../../style/sellPart.module.less'
 
 class SellPart extends Component {
 	constructor() {
