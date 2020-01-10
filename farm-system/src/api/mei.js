@@ -3,9 +3,9 @@ import {getItem} from '../utils/webStorage'
 // 获取商品列表
 
 export const GetGoods = async (page,pageSize)=>{
-  let url='/hehe/v1/admin/consum/getconsum' 
+  let url='/hehe/v1/admin/consum/getconsum'
   let result = await axios.post(url,{page,pageSize})
-  if(result.err==0){
+  if(result.err === 0){
     return result
   }else{
     throw result
@@ -14,9 +14,9 @@ export const GetGoods = async (page,pageSize)=>{
 //根据id删除数据
 
 export const DelGood = async (consumeid)=>{
-  let url='/hehe/v1/admin/consum/delconsum' 
+  let url='/hehe/v1/admin/consum/delconsum'
   let result = await axios.post(url,{consumeid})
-  if(result.err==0){
+  if(result.err === 0){
     return result
   }else{
     throw result
@@ -24,22 +24,22 @@ export const DelGood = async (consumeid)=>{
 }
 //添加
 export const AddGood = async ({name, Consumptiontime, imgUrl,Consumptioncategory,number})=>{
-  let url='/hehe/v1/admin/consum/addconsum' 
+  let url='/hehe/v1/admin/consum/addconsum'
 
   let result = await axios.post(url,{name, Consumptiontime, imgUrl,Consumptioncategory,number})
-  if(result.err==0){
+  if(result.err === 0){
     return result
   }else{
     throw result
   }
 }
 
-//修改数据 
+//修改数据
 export const UpdateGood = async ({_id,name, Consumptiontime, imgUrl,Consumptioncategory,number})=>{
-  let url='/hehe/v1/admin/consum/updateconsum' 
+  let url='/hehe/v1/admin/consum/updateconsum'
   let consumeid=_id
   let result = await axios.post(url,{consumeid,name, Consumptiontime, imgUrl,Consumptioncategory,number})
-  if(result.err==0){
+  if(result.err === 0){
     return result
   }else{
     throw result
@@ -49,7 +49,7 @@ export const UpdateGood = async ({_id,name, Consumptiontime, imgUrl,Consumptionc
 export const Seach =async ({name})=>{
   let url='/hehe/v1/admin/consum/getconsum'
   let result = await axios.post(url,{name})
-  if(result.err==0){
+  if(result.err === 0){
     return result
   }else{
     throw result

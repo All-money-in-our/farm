@@ -8,7 +8,7 @@ import styles from '../../style/Admin.module.less'
 import SlideNav from '../../component/SlideNav/SlideNav'
 import HeaderNav from '../../component/HeaderNav/HeaderNav'
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 
 class Admin extends Component {
 	state = {

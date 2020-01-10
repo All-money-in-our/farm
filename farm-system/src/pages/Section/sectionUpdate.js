@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { getSelections, delSection, getSectionsByType } from '../../api/section'
+import { getSelections, delSection, getSectionsByName } from '../../api/section'
 import styles from '../../style/Section.module.less'
 import SectionRevamp from './sectionRevamp'
 import { Table, Button, Pagination, Spin, Popconfirm, message, Drawer, Select } from 'antd'
@@ -119,12 +119,12 @@ class SectionCreate extends Component {
 			<div>
 				<Select
 					showSearch
-					style={{ width: 140, marginBottom: 10 }}
+					className={styles.select}
 					placeholder="请选择部门"
 					optionFilterProp="children"
 					onChange={(name) => {
 						// console.log(name)
-						getSectionsByType(name,nowPage = 1,pageSize).then((res) => {
+						getSectionsByName(name,nowPage = 1,pageSize).then((res) => {
 							console.log(res)
 							message.success('查询成功', 1)
 							// window.location.reload()
