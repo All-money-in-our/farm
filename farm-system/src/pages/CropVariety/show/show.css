@@ -1,5 +1,5 @@
 .show_div_bg{
-    background-image:url("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2731360590,3226816949&fm=26&gp=0.jpg");
+    
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -8,7 +8,4 @@
     width:300px;
     height:300px;
     /* float:left */
-}
-.show_div_tree{
-    /* float:right; */
 }

@@ -114,23 +114,22 @@ class SectionCreate extends Component {
 	}
 
 	render() {
-		let { sectionData, allCount, spinning, nowPage, drawerShow, updataInfo, name } = this.state
+		let { sectionData, allCount, spinning, nowPage, drawerShow, updataInfo } = this.state
 		return (
 			<div>
 				<Select
 					showSearch
-					style={{ width: 140 }}
+					style={{ width: 140, marginBottom: 10 }}
 					placeholder="请选择部门"
 					optionFilterProp="children"
-					onChange={(e) => {
-						this.setState({ name: e })
+					onChange={(name) => {
 						// console.log(name)
-						getSectionsByType(name).then((res) => {
+						getSectionsByType(name,nowPage = 1,pageSize).then((res) => {
 							console.log(res)
 							message.success('查询成功', 1)
 							// window.location.reload()
-							console.log(res.list.sections)
-							this.setState({ sectionData: res.list.sections })
+							// console.log(res.list.sections)
+							this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, page: res.list.page })
 						})
 					}
 						// this.getTableDataByType(name)
@@ -147,26 +146,6 @@ class SectionCreate extends Component {
 					<Select.Option value="人事部">人事部</Select.Option>
 					<Select.Option value="气象监测中心">气象监测中心</Select.Option>
 				</Select>
-				{/* <select
-					onChange={(e) => {
-						this.setState({ name: e })
-						// console.log(name)
-						getSectionsByType(name).then((res) => {
-							console.log(res)
-							message.success('查询成功', 1)
-							// window.location.reload()
-							console.log(res.list.sections)
-							this.setState({ sectionData: res.list.sections })
-						})
-					}}
-				>
-					<option value="请选择部门" selected>请选择部门</option>
-					<option value="行政内勤部">行政内勤部</option>
-					<option value="养殖种植部">养殖种植部</option>
-					<option value="农资管理部">农资管理部</option>
-					<option value="人事部">人事部</option>
-					<option value="气象监测中心">气象监测中心</option>
-				</select> */}
 				<Spin spinning={spinning} tip="Loading...">
 					<Table
 						className={styles.table}
