@@ -42,7 +42,6 @@ class Admin extends Component {
 						<Content className={styles.content}>
 							{this.props.children}
 						</Content>
-						<Footer style={{ textAlign: "center" }}>小型农场管理系统</Footer>
 					</Layout>
 				</Layout>
 				<Modal
