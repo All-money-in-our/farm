@@ -12,11 +12,11 @@ export class pie extends Component {
                 legend: {
                     orient: 'vertical',
                     left: 10,
-                    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                    data: ['植物', '粮食', '水果', '蔬菜', ]
                 },
                 series: [
                     {
-                        name: '访问来源',
+                        name: '品种分布',
                         type: 'pie',
                         radius: ['40%', '60%'],
                         avoidLabelOverlap: false,
@@ -39,11 +39,11 @@ export class pie extends Component {
                             }
                         },
                         data: [
-                            {value: 335, name: '直接访问'},
-                {value: 310, name: '邮件营销'},
-                {value: 234, name: '联盟广告'},
-                {value: 135, name: '视频广告'},
-                {value: 1548, name: '搜索引擎'}
+                        
+                {value: 310, name: '植物'},
+                {value: 234, name: '粮食'},
+                {value: 135, name: '水果'},
+                {value: 245, name: '蔬菜'}
                         ]
                     }
                 ]

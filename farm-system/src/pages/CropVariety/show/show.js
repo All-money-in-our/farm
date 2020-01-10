@@ -28,22 +28,19 @@ export class show extends Component {
 							/>
 							<TreeNode title="小麦" key="0-0-0-1" />
 							<TreeNode title="玉米" key="0-0-0-2" />
-							<TreeNode title="高粱" key="0-0-0-3" />
 						</TreeNode>
 						<TreeNode title="水果" key="0-0-1">
 							<TreeNode title="苹果" key="0-0-1-0"/>
 							<TreeNode title="橙子" key="0-0-1-1"/>
-							<TreeNode title="香蕉" key="0-0-1-2"/>
+						
                         </TreeNode>
                         <TreeNode title="蔬菜" key="0-0-2">
-							<TreeNode title="茄子" key="0-0-2-0"/>
 							<TreeNode title="黄瓜" key="0-0-2-1"/>
 							<TreeNode title="西红柿" key="0-0-2-2"/>
                         </TreeNode>
                         <TreeNode title="植物" key="0-0-3">
-							<TreeNode title="杨树" key="0-0-3-0"/>
+							<TreeNode title="月季" key="0-0-3-0"/>
 							<TreeNode title="柳树" key="0-0-3-1"/>
-							<TreeNode title="槐树" key="0-0-3-2"/>
 						</TreeNode>
 					</TreeNode>
                     </Tree>
