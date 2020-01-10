@@ -5,7 +5,6 @@ export class Updata extends Component {
     constructor(props) {
         super()
         this.state = { ...props.updataInfo }
-        console.log(this)
     }
     componentWillReceiveProps(props) {
         this.setState({ ...props.updataInfo })
@@ -13,7 +12,6 @@ export class Updata extends Component {
     submit=()=>{
         updataProductList(this.state)
         .then((res)=>{
-            console.log(res)
             message.success('修改成功',1)
             this.props.updatashow()
         })

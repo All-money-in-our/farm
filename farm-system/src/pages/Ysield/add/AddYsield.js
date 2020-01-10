@@ -14,11 +14,10 @@ export class AddYsield extends Component {
     }
     submit = () => {
         addProductList(this.state)
-            .then((res) => { console.log(res)
+            .then((res) => {
             message.success('添加成功',1)
             })
             .catch((res)=>{
-                console.log(res)
                 message.error('添加失败',1)
             })
     }

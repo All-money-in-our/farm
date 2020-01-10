@@ -35,9 +35,9 @@ export default [
 				id: "2-0"
 			},
 			{
-				name: "商品数据展示",
-				path: "/admin/cropVariety/show",
-				id: "2-1"
+				name: '品种数据展示',
+				path: '/admin/cropVariety/show',
+				id: '2-1'
 			}
 		]
 	},

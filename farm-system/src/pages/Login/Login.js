@@ -33,7 +33,7 @@ class Login extends Component {
     let { getFieldDecorator } = this.props.form
     return (
       <div className={styles.login}>
-        <Card title='用户登录' className={styles['login-card']}>
+        <Card title='用户登录' hoverable={true} bordered={false} className={styles['login-card']}>
           <Form.Item>
             {getFieldDecorator('userName', {
               rules: [{ required: true, message: '用户名不能为空!' },
