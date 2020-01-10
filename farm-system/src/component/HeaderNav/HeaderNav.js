@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component ,Fragment} from 'react';
 import { withRouter } from 'react-router-dom'
 import styles from '../../style/Admin.module.less'
 import { Dropdown, Menu, Icon, notification,Button } from 'antd'
 import { clear } from '../../utils/webStorage'
 import { UserLogout } from '../../api/user'
 
+import MenuList from "../SlideNav/dataList"
+import {date} from "../../utils/date"
 const menuData = [
 	{ path: '', name: '个人信息', icon: 'user' },
 	{ path: '', name: '个人设置', icon: 'user' },
@@ -15,7 +17,8 @@ const openNotificationWithIcon = (type, msg) => {
 	notification[type]({
 		message: '退出结果',
 		description: msg,
-		duration: 1
+		duration: 1,
+		
 	});
 };
 
@@ -63,15 +66,51 @@ class HeaderNav extends Component {
 			</Menu>
 		)
 	}
+	// 渲染头部导航的路径名称
+	getTitle = () => {
+		let title = ""
+		const path = this.props.location.pathname
+		MenuList.map((item) => {
+			if (item.path === path) {
+				title = item.name
+			} else if (item.children) {
+			let cItem=item.children.find(citem => citem.path===path)
+				if (cItem) {
+					title=cItem.name
+				}
+			}
+		})
+		return title
+	}
+	
+	componentDidMount() {
+		setInterval  (() => {
+			this.setState({currentTime:date(Date.now())})
+		}, 1000)
+		
+	}
+	constructor() {
+		super()
+		this.state = {
+			currentTime: date(Date.now()) ,
+		}
+	}
 	render() {
+		const title = this.getTitle()
+		let {currentTime}=this.state
 		return (
+			<Fragment>
+				<span style={{color:"blue",fontSize:"20px"}}> {title}</span>&nbsp;&nbsp;&nbsp;
+				<span style={{color:"blue",fontSize:"20px"}}> {currentTime}</span>
 			<div className={styles.headerNav}>
+				
 				<Dropdown overlay={this.renderMenu(menuData)}>
 					<Button>
 						root <Icon type="down" />
 					</Button>
 				</Dropdown>
-			</div>
+				</div>
+			</Fragment>
 		)
 	}
 }
