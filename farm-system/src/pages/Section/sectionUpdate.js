@@ -1,10 +1,19 @@
 import React, { Component, Fragment } from 'react'
-import { getSelections, delSection } from '../../api/section'
+import { getSelections, delSection, getSectionsByType } from '../../api/section'
 import styles from '../../style/Section.module.less'
-
-import { Table, Button, Pagination, Spin, Popconfirm, message, Drawer } from 'antd'
+import SectionRevamp from './sectionRevamp'
+import { Table, Button, Pagination, Spin, Popconfirm, message, Drawer, Select } from 'antd'
 
 const pageSize = 3;
+
+
+function onBlur() {
+	console.log('blur');
+}
+
+function onFocus() {
+	console.log('focus');
+}
 
 class SectionCreate extends Component {
 	constructor() {
@@ -77,6 +86,8 @@ class SectionCreate extends Component {
 			nowPage: 1,//当前页数
 			allCount: 0,//总数据条数
 			sectionData: [],
+			updataInfo: {},
+			name: '行政内勤部'
 		}
 	}
 	componentDidMount() {
@@ -96,18 +107,66 @@ class SectionCreate extends Component {
 	delTableData(id) {
 		//  网络请求
 		delSection(id).then(() => {
-			message.success('删除ok', 1)
+			message.success('删除成功', 1)
 			window.location.reload()
 			// this.getTableData()
 		})
-
-		// 更新页面数据
 	}
 
 	render() {
-		let { sectionData, allCount, spinning, nowPage, drawerShow } = this.state
+		let { sectionData, allCount, spinning, nowPage, drawerShow, updataInfo, name } = this.state
 		return (
 			<div>
+				<Select
+					showSearch
+					style={{ width: 140 }}
+					placeholder="请选择部门"
+					optionFilterProp="children"
+					onChange={(e) => {
+						this.setState({ name: e })
+						// console.log(name)
+						getSectionsByType(name).then((res) => {
+							console.log(res)
+							message.success('查询成功', 1)
+							// window.location.reload()
+							console.log(res.list.sections)
+							this.setState({ sectionData: res.list.sections })
+						})
+					}
+						// this.getTableDataByType(name)
+					}
+					onFocus={onFocus}
+					onBlur={onBlur}
+					filterOption={(input, option) =>
+						option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+					}
+				>
+					<Select.Option value="行政内勤部">行政内勤部</Select.Option>
+					<Select.Option value="养殖种植部">养殖种植部</Select.Option>
+					<Select.Option value="农资管理部">农资管理部</Select.Option>
+					<Select.Option value="人事部">人事部</Select.Option>
+					<Select.Option value="气象监测中心">气象监测中心</Select.Option>
+				</Select>
+				{/* <select
+					onChange={(e) => {
+						this.setState({ name: e })
+						// console.log(name)
+						getSectionsByType(name).then((res) => {
+							console.log(res)
+							message.success('查询成功', 1)
+							// window.location.reload()
+							console.log(res.list.sections)
+							this.setState({ sectionData: res.list.sections })
+						})
+					}}
+				>
+					<option value="请选择部门" selected>请选择部门</option>
+					<option value="行政内勤部">行政内勤部</option>
+					<option value="养殖种植部">养殖种植部</option>
+					<option value="农资管理部">农资管理部</option>
+					<option value="人事部">人事部</option>
+					<option value="气象监测中心">气象监测中心</option>
+				</select> */}
 				<Spin spinning={spinning} tip="Loading...">
 					<Table
 						className={styles.table}
@@ -131,9 +190,17 @@ class SectionCreate extends Component {
 					onClose={() => { this.setState({ drawerShow: false }) }}
 					visible={drawerShow}
 				>
-
+					{/* 将要修改的数据 和刷新方法通过props传递子组件 */}
+					<SectionRevamp
+						updataInfo={updataInfo}
+						refreshList={() => {
+							// 收起抽屉
+							this.setState({ drawerShow: false })
+							// 更新完毕后刷新界面
+							this.getTableData()
+						}}></SectionRevamp>
 				</Drawer>
-			</div>
+			</div >
 		)
 	}
 }

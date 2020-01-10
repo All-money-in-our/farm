@@ -41,8 +41,7 @@ class HeaderNav extends Component {
 						},1600)
 					})
 					.catch((err) => {
-
-						openNotificationWithIcon('error', '退出失败请重试')
+						console.log('error', '退出失败请重试')
 					})
 				break;
 

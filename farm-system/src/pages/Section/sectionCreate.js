@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
-import { Steps, Button, message, Input } from 'antd';
+import { Steps, Button, message } from 'antd';
 import styles from '../../style/Section.module.less'
+import { addSection } from '../../api/section'
 
 const { Step } = Steps;
 
-
-
 class SectionUpdate extends Component {
+
 	constructor(props) {
 		super(props);
+		this.state={
+			current: 0,
+			name:'',
+			leader:'',
+			duty:'',
+			peopleCount:'',
+			email:'',
+			phone:''
+		  }
 		this.steps = [
 			{
 				title: 'First',
 				content: () => {
+					const { name, leader } = this.state;
 					return (
 						<div>
-							部门名称: <Input className={styles.name} />
-							部门负责人: <Input className={styles.name} />
+							部门名称:
+							<input className={styles.name} type='text' value={name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
+							部门负责人:
+							<input className={styles.name} type='text' value={leader} onChange={(e) => { this.setState({ leader: e.target.value }) }} />
 						</div>
 					)
 				},
@@ -24,10 +36,13 @@ class SectionUpdate extends Component {
 			{
 				title: 'Second',
 				content: () => {
+					const { duty, peopleCount } = this.state;
 					return (
 						<div>
-							部门职责: <Input className={styles.name} />
-							部门人数: <Input className={styles.name} />
+							部门职责:
+							<input className={styles.name} type='text' value={duty} onChange={(e) => { this.setState({ duty: e.target.value }) }} />
+							部门人数:
+							<input className={styles.name} type='text' value={peopleCount} onChange={(e) => { this.setState({ peopleCount: e.target.value }) }} />
 						</div>
 					)
 				},
@@ -35,18 +50,28 @@ class SectionUpdate extends Component {
 			{
 				title: 'Last',
 				content: () => {
+					const { email, phone } = this.state;
 					return (
 						<div>
-							部门邮箱: <Input className={styles.name} />
-							部门电话: <Input className={styles.name} />
+							部门邮箱:
+							<input className={styles.name} type='text' value={email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
+							部门电话:
+							<input className={styles.name} type='text' value={phone} onChange={(e) => { this.setState({ phone: e.target.value }) }} />
 						</div>
 					)
 				},
 			},
 		]
-		this.state = {
-			current: 0,
-		};
+	}
+
+	// 添加数据
+	addTableData({ name, leader, duty, peopleCount, email, phone }) {
+		this.setState({ spinning: true })
+		addSection({ name, leader, duty, peopleCount, email, phone })
+			.then((res) => {
+				// console.log(res)
+				this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, spinning: false, page: res.list.page })
+			})
 	}
 
 	next() {
@@ -58,6 +83,7 @@ class SectionUpdate extends Component {
 		const current = this.state.current - 1;
 		this.setState({ current });
 	}
+
 	render() {
 		const { current } = this.state;
 		return (
@@ -82,7 +108,11 @@ class SectionUpdate extends Component {
 					)}
 
 					{current === this.steps.length - 1 && (
-						<Button type="primary" onClick={() => message.success('添加成功!')}>
+						<Button type="primary"
+							onClick={() => addSection(this.state)
+								.then(() => { message.success('添加成功!', 1) })
+								.catch((err) => { message.error('添加失败', 1) })}
+						>
 							添加
             			</Button>
 					)}
