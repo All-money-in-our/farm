@@ -13,13 +13,13 @@ export default [
 		children: [
 			{
 				name: "现有部门管理",
-				icon:"deployment-unit",
+				icon: "deployment-unit",
 				path: "/admin/section/sectionUpdate",
-				id: "1-1"
+				id: "1-0"
 			},
 			{
 				name: "部门新增",
-				icon:"gateway",
+				icon: "gateway",
 				path: "/admin/section/sectionCreate",
 				id: "1-2"
 			}
@@ -33,12 +33,13 @@ export default [
 		children: [
 			{
 				name: "品种列表",
-				icon:"database",
+				icon: "database",
 				path: "/admin/cropVariety/list",
 				id: "2-0"
 			},
 			{
 				name: '品种数据展示',
+				icon: "setting",
 				path: '/admin/cropVariety/show',
 				id: '2-1'
 			}
@@ -47,8 +48,15 @@ export default [
 	{
 		name: "气象管理",
 		icon: "cloud",
-		path: "/admin/weather",
-		id: "3"
+		id: "3",
+		children: [
+			{
+				name: "气象管理",
+				icon: "cloud",
+				path: "/admin/weather",
+				id: "3-0",
+			},
+		]
 	},
 	{
 		name: "消耗管理",
@@ -78,7 +86,7 @@ export default [
 			},
 			{
 				name: "产量列表",
-				icon:"database",
+				icon: "database",
 				path: "/admin/listysield",
 				id: "5-1"
 			},
@@ -93,7 +101,14 @@ export default [
 	{
 		name: "销售管理",
 		icon: "shopping-cart",
-		path: "/admin/sell",
-		id: "6"
+		id: "6",
+		children: [
+			{
+				name: "销售管理",
+				icon: "shopping-cart",
+				path: "/admin/sell",
+				id: "6-0"
+			}
+		]
 	}
 ];
