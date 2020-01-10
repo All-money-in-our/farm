@@ -10,19 +10,16 @@ import SectionUpdate from '../pages/Section/sectionUpdate'
 import CropVariety from '../pages/CropVariety/CropVariety'
 import Weather from '../pages/Weather/Weather'
 import Expend from '../pages/Expend/Expend'
-import Text from '../pages/Expend/text'
+// import Text from '../pages/Expend/text'
 import Sell from '../pages/Sell/Sell'
-<<<<<<< HEAD
-import Ysield from '../pages/Ysield/Ysield'
-import Add from '../pages/Expend/add/add'
-=======
+// import Ysield from '../pages/Ysield/Ysield'
+// import Add from '../pages/Expend/add/add'
 import Show from "../pages/CropVariety/show/show"
 // import Addysield from '../pages/Ysield/add/AddYsield'
 // import Listysield from '../pages/Ysield/list/Ysield'
 const Addysield = loadable(() => import('../pages/Ysield/add/AddYsield'))
 const Listysield = loadable(() => import('../pages/Ysield/list/Ysield'))
 const Inquire = loadable(() => import('../pages/Ysield/inquire/Inquire'))
->>>>>>> 162256ae17cf53dfafd5b42b13a69e576188c141
 class AppRouter extends Component {
 	render() {
 		return (
@@ -51,17 +48,6 @@ class AppRouter extends Component {
 									<Route path='/admin/listysield' component={Listysield}></Route>
 									<Route path='/admin/inquire' component={Inquire}></Route>
 									<Route path='/admin/sell' component={Sell} ></Route>
-<<<<<<< HEAD
-                                    {/* <Route path='/admin/expend/text' component={Text}></Route> */}
-                                </Switch>
-                            </Admin>
-                        )
-                    }}></Route>
-                </Switch>
-            </HashRouter>
-        )
-    }
-=======
 								</Switch>
 							</Admin>
 						)
@@ -70,6 +56,5 @@ class AppRouter extends Component {
 			</HashRouter>
 		)
 	}
->>>>>>> 162256ae17cf53dfafd5b42b13a69e576188c141
 }
 export default AppRouter

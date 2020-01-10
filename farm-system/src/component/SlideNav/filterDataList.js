@@ -4,10 +4,6 @@ export const filterDataList = (ids) => {
     let result = []
     for (let index = 0; index < dataList.length; index++) {
         let id = dataList[index].id
-<<<<<<< HEAD
-       
-=======
->>>>>>> 162256ae17cf53dfafd5b42b13a69e576188c141
         if (ids.indexOf(id) !== -1) {
             // 满足id条件 直接push到新数组
             result.push(dataList[index])

@@ -14,7 +14,7 @@ import {
 import Mask from "./drawer";
 import styles from "./table.module.less";
 // 引入商品列表和删除接口方法
-import { GetGoods, DelGood,Seach } from "../../api/mei";
+import { GetGoods, DelGood, Seach } from "../../api/mei";
 import GoodsAdd from "./add/add";
 // 模态框组件
 import Modelupdate from "./add/update";
@@ -40,7 +40,6 @@ class Expend extends Component {
 			visible2: false //控制模态框
 		};
 		this.columns = [
-			
 			{
 				title: <Checkbox />,
 				width: 20,
@@ -54,7 +53,7 @@ class Expend extends Component {
 			},
 			{
 				title: "消耗产品",
-				dataIndex: "_id",
+				dataIndex: "name",
 				width: 80,
 				ellipsis: true
 				// fixed:'left'
@@ -185,26 +184,29 @@ class Expend extends Component {
 				<Search
 					placeholder="input search text"
 					enterButton="查询"
+					
 					size="large"
 					allowClear="true"
 					className={styles.inputWidth}
-					onSearch={value => console.log(value)}
-					onClick={()=>{
-						
+					onSearch={value => {
+						Seach(value)
+						.then(data=>{
+							console.log(data)
+							this.GetTable(pageSize)
+						})
 					}}
 				/>
 
-				<Table
-					columns={this.columns}
-					rowKey="_id"
-					pagination={false}
-					dataSource={this.state.dataSource}
-					className={styles.table}
-					scroll={{ y: 380, x: 500 }}
-				>
-					
-				</Table>
-				<Spin spinning={spinning}></Spin>
+				<Spin spinning={spinning}>
+					<Table
+						columns={this.columns}
+						rowKey="_id"
+						pagination={false}
+						dataSource={this.state.dataSource}
+						className={styles.table}
+						scroll={{ y: 380, x: 500 }}
+					></Table>
+				</Spin>
 				<Pagination
 					simple
 					total={allCount}
@@ -214,7 +216,7 @@ class Expend extends Component {
 						this.GetTable(page);
 					}}
 				/>
-		
+
 				<Modal
 					title="修改"
 					visible={this.state.visible2}
@@ -223,10 +225,12 @@ class Expend extends Component {
 						this.setState({ visible2: false });
 					}}
 				>
-					<Modelupdate 
-					updataInfo={updataInfo} refreshList={()=>{
-						this.GetTable()
-					}}/>
+					<Modelupdate
+						updataInfo={updataInfo}
+						refreshList={() => {
+							this.GetTable();
+						}}
+					/>
 				</Modal>
 				{/* 添加模态框 */}
 				<Modal

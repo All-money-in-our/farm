@@ -46,10 +46,10 @@ export const UpdateGood = async ({_id,name, Consumptiontime, imgUrl,Consumptionc
   }
 }
 //查询接口（分页查询  分类查询 关键字查询）
-export const Seach =async ({page,pageSize})=>{
+export const Seach =async ({name})=>{
   let url='/hehe/v1/admin/consum/getconsum'
-  let result = await axios.post(url,{page,pageSize})
-  if(result.rr==0){
+  let result = await axios.post(url,{name})
+  if(result.err==0){
     return result
   }else{
     throw result
