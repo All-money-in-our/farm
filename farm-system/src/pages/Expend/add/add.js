@@ -36,25 +36,25 @@ class GoodsAdd extends Component{
     let {name, Consumptiontime, imgUrl,Consumptioncategory,number} = this.state
     return (
       <div>
-        产品: <input   type='text' value={name} 
+        产品: <Input   type='text' value={name} 
           onChange={(e)=>{
             this.setState({name:e.target.value})
           }}
           /> 
           <br/>
-          时间: <input type='text' value={Consumptiontime} 
+          时间: <Input type='text' value={Consumptiontime} 
           onChange={(e)=>{
             this.setState({Consumptiontime:e.target.value})
           }}
           />
           <br/>
-          类别: <input type='text' value={Consumptioncategory} 
+          类别: <Input type='text' value={Consumptioncategory} 
           onChange={(e)=>{
             this.setState({Consumptioncategory:e.target.value})
           }}
           />
           <br/>
-          数量: <input type='text' value={number} 
+          数量: <Input type='text' value={number} 
           onChange={(e)=>{
             this.setState({ number:e.target.value})
           }}
