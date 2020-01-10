@@ -1,4 +1,5 @@
 import axios from '../utils/axios'
+import { resolveOnChange } from 'antd/lib/input/Input'
 
 // 销售
 export const getSells = async (page, pageSize) => {
@@ -39,6 +40,40 @@ export const addSells = async (num,types,product,time,kg,price) => {
 		time,
 		kg,
 		price
+		})
+	if (result.err === 0) {
+		return result
+	} else {
+		throw result
+	}
+}
+
+// 修改数据
+export const updateSells = async (_id,num,types,product,time,kg,price) => {
+	let url = `/hehe/v1/admin/sell/updateSells`
+	let result = await axios.post(url,
+		{
+		_id,
+		num,
+		types,
+		product,
+		time,
+		kg,
+		price
+		})
+	if (result.err === 0) {
+		return result
+	} else {
+		throw result
+	}
+}
+
+// 分类查询
+export const getSellsByType = async (types) => {
+	let url = `/hehe/v1/admin/sell/getSellsByType`
+	let result = await axios.post(url,
+		{
+			types
 		})
 	if (result.err === 0) {
 		return result
