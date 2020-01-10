@@ -18,7 +18,7 @@ const openNotificationWithIcon = (type, msg) => {
 		message: '退出结果',
 		description: msg,
 		duration: 1,
-		
+
 	});
 };
 
@@ -81,12 +81,12 @@ class HeaderNav extends Component {
 		})
 		return title
 	}
-	
+
 	componentDidMount() {
 		setInterval  (() => {
 			this.setState({currentTime:date(Date.now())})
 		}, 1000)
-		
+
 	}
 	constructor() {
 		super()
@@ -99,10 +99,10 @@ class HeaderNav extends Component {
 		let {currentTime}=this.state
 		return (
 			<Fragment>
-				<span style={{color:"blue",fontSize:"20px"}}> {title}</span>&nbsp;&nbsp;&nbsp;
-				<span style={{color:"blue",fontSize:"20px"}}> {currentTime}</span>
+				<span className={styles.span}> {title}</span>&nbsp;&nbsp;&nbsp;
+				<span className={styles.span}> {currentTime}</span>
 			<div className={styles.headerNav}>
-				
+
 				<Dropdown overlay={this.renderMenu(menuData)}>
 					<Button>
 						root <Icon type="down" />
