@@ -39,18 +39,7 @@ class Admin extends Component {
 							/>
 							<HeaderNav className={styles.headerNav}></HeaderNav>
 						</Header>
-						<Content
-							style={{
-								margin: '24px 16px',
-								padding: 24,
-								background: '#fff',
-								minHeight: 280,
-								fontSize: '20px',
-								backgroundImage: "url('http://m.qpic.cn/psc?/V10nQreM48vGw8/AQcIL30w4PRNLA8O7NR*vP9SR9t*WONW8vTsjlSplf1VU750t9NmQkVgxF5bCc.g8op0YFYAtIC63bXXImbpEQTnOJ3Al8fqhc3McGiejKA!/b&bo=BAewBFoJQAYRB5I!&rf=viewer_4')",
-								backgroundSize: "100%",
-								backgroundRepeat: "no-repeat"
-							}}
-						>
+						<Content className={styles.content}>
 							{this.props.children}
 						</Content>
 						<Footer style={{ textAlign: "center" }}>小型农场管理系统</Footer>

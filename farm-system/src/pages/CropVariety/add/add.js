@@ -1,5 +1,5 @@
 import React, { Component ,Fragment} from 'react';
-import { Button, message,Input,Select } from 'antd';
+import { Button, message,Input } from 'antd';
 import { addCrop } from "../../../api/crop";
 import styles from "./add.css"
 console.log(styles)
