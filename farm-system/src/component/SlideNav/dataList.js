@@ -7,30 +7,33 @@ export default [
 	},
 	{
 		name: "部门管理",
-		icon: "reddit",
+		icon: "apartment",
 		path: "/admin/section",
 		id: "1",
 		children: [
 			{
-				path: "/admin/section/sectionUpdate",
 				name: "现有部门管理",
+				icon:"deployment-unit",
+				path: "/admin/section/sectionUpdate",
 				id: "1-1"
 			},
 			{
-				path: "/admin/section/sectionCreate",
 				name: "部门新增",
+				icon:"gateway",
+				path: "/admin/section/sectionCreate",
 				id: "1-2"
 			}
 		]
 	},
 	{
 		name: "品种管理",
-		icon: "setting",
+		icon: "experiment",
 		path: "/admin/cropVariety",
 		id: "2",
 		children: [
 			{
 				name: "品种列表",
+				icon:"database",
 				path: "/admin/cropVariety/list",
 				id: "2-0"
 			},
@@ -43,7 +46,7 @@ export default [
 	},
 	{
 		name: "气象管理",
-		icon: "setting",
+		icon: "cloud",
 		path: "/admin/weather",
 		id: "3"
 	},
@@ -54,7 +57,7 @@ export default [
 		id: "4",
 		children: [
 			{
-				name: "文本编辑器",
+				name: "消耗统计",
 				icon: "apple",
 				path: "/admin/expend/text",
 				id: "4-0"
@@ -63,19 +66,19 @@ export default [
 	},
 	{
 		name: "产量管理",
-		icon: "setting",
+		icon: "transaction",
 		path: "/admin/ysield",
 		id: "5",
 		children: [
 			{
 				name: "产量添加",
-				icon: "setting",
+				icon: "percentage",
 				path: "/admin/addysield",
 				id: "5-0"
 			},
 			{
 				name: "产量列表",
-				icon: "setting",
+				icon:"database",
 				path: "/admin/listysield",
 				id: "5-1"
 			},
@@ -89,7 +92,7 @@ export default [
 	},
 	{
 		name: "销售管理",
-		icon: "setting",
+		icon: "shopping-cart",
 		path: "/admin/sell",
 		id: "6"
 	}

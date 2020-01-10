@@ -57,7 +57,7 @@ class SlideNav extends Component {
     render() {
         let { menuData } = this.state
         return (
-            <Menu onClick={handleClick} mode="vertical" theme='dark'>
+            <Menu onClick={handleClick} mode="inline" theme='dark'>
                 {this.renderItem(menuData)}
             </Menu>
         )
