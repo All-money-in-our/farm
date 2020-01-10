@@ -11,7 +11,7 @@ export class Updata extends Component {
     }
     submit=()=>{
         updataProductList(this.state)
-        .then((res)=>{
+        .then(()=>{
             message.success('修改成功',1)
             this.props.updatashow()
         })

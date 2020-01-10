@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Input, Select, Button } from 'antd'
-import { addInquireList,getInquireList } from '../../../api/Inquire'
+import { addInquireList } from '../../../api/Inquire'
 export class Add extends Component {
     constructor(){
 

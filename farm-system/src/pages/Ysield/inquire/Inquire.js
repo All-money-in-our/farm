@@ -51,8 +51,8 @@ export class Inquire extends Component {
                                     this.setState({madalvisible:true,updataInfo:data})
                                 }}>配置</Button>
                                 <Button type="danger" ghost onClick={()=>{
-                                    delInquireList(data._id)
-                                    .then((res)=>{})
+                                    delInquireList(data)
+                                    .then(()=>{})
                                     this.getTableData()
                                 }}>删除</Button>
                             </div>
