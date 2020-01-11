@@ -386,24 +386,36 @@ class Weather extends Component{
         let e = event || window.event
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        this.setState({
-            weatherShow : true
-        })
+        let timer = null
+        if (timer === null) {
+            timer = setTimeout(() => {
+                this.setState({
+                    weatherShow : true
+                })
+                timer = null
+            }, 700);
+        }
     }
     toggleHide = (event) => {
         let e = event || window.event
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        this.setState({
-            weatherShow : false
-        })
+        let timer = null
+        if (timer === null) {
+            timer = setTimeout(() => {
+                this.setState({
+                    weatherShow : false
+                })
+                timer = null
+            }, 700);
+        }
     }
     render(){
         let { weatherData, fiveDayData } = this.state
         return(
             <div className={styles.weather}>
-                <div className={styles.top_weather}>
-                    <div className={styles.top_weather_brief} onMouseEnter={this.toggleShow} onMouseLeave={this.toggleHide} >
+                <div className={styles.top_weather} >
+                    <div className={styles.top_weather_brief} onMouseEnter={this.toggleShow} onMouseLeave={this.toggleHide}>
                         <span>{weatherData.city.pname} {weatherData.city.name}</span>
                         <b>{weatherData.condition.Ftemp}</b>
                         <i className={styles.top_weather_wea}>
