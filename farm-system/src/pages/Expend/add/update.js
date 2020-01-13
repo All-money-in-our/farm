@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react';
-import {Table,Pagination,Spin,Button,Popconfirm, message,Input} from 'antd'
+import {Button, message,Input} from 'antd'
 import {UpdateGood} from  '../../../api/mei'
 class GoodsUpdate extends Component{
   constructor(props){
@@ -23,17 +23,17 @@ class GoodsUpdate extends Component{
   }
   render(){
     // console.log(this)
-    let {_id,name, Consumptiontime, imgUrl, Consumptioncategory, number } = this.state
+    let {name, Consumptiontime, imgUrl, Consumptioncategory, number } = this.state
     return (
       <Fragment>
-      
+
         <br/>
         名称:<Input type='text' value={name} onChange={(e)=>{this.setState({name:e.target.value}) }}/><br/>
         时间:<Input type='text' value={Consumptiontime} onChange={(e)=>{this.setState({Consumptiontime:e.target.value}) }}/><br/>
         类型:<Input type='text' value={Consumptioncategory} onChange={(e)=>{this.setState({Consumptioncategory:e.target.value}) }}/><br/>
         数量:<Input type='text' value={number} onChange={(e)=>{this.setState({number:e.target.value}) }}/><br/>
-        缩略图 : <img src={imgUrl} width='100' height='80'/><br/>
-        <input type='file' ref='file'/> 
+        缩略图 : <img src={imgUrl} width='100' height='80' alt=""/><br/>
+        <input type='file' ref='file'/>
         <button onClick={()=>{
           let file= this.refs.file.files[0]
           if(!file) return message.info('请先选择图片')
@@ -45,7 +45,7 @@ class GoodsUpdate extends Component{
         }}>文件上传</button>
 
         <Button type='primary' onClick={this.submit}>修改</Button>
-        
+
       </Fragment>
     );
   }
@@ -55,7 +55,7 @@ class GoodsUpdate extends Component{
 2.用户修改
 3.调用修改接口
 4.关闭抽屉 刷新list页面
-*/ 
+*/
 
 export default GoodsUpdate;
 

@@ -42,6 +42,7 @@ export const updateInquireList = async ({_id,name,desc,sta,inventory}) =>{
 }
 // 删除
 export const delInquireList = async (foodId) =>{
+	console.log(foodId)
     let url = '/hehe/v1/admin/inquire/delInquire'
     let result = await axios.post(url,{foodId})
     if(result.err === 0){

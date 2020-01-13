@@ -13,7 +13,7 @@ class Ysields extends Component {
                     title: '名称',
                     dataIndex: 'name',
                     key: 'name',
-                    render: text => <a>{text}</a>,
+                    render: text => <a href="javascript()">{text}</a>,
                 },
                 {
                     title: '生产时间',
@@ -31,7 +31,7 @@ class Ysields extends Component {
                     key: 'img',
                     render: (img) => {
                         return (
-                            <img src={img} width='80' height='80' />
+                            <img src={img} width='80' height='80' alt="" />
                         )
                     }
                 },

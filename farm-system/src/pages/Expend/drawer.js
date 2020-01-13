@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Drawer, Button } from "antd";
-import { AddGood } from "./add/add";
 import GoodsAdd from "./add/add";
 import UpdateModel from "./updateModel";
 export default class Mask extends Component {
@@ -17,7 +16,7 @@ export default class Mask extends Component {
 			visible: false
 		});
 	};
-	
+
 	render() {
 		return (
 			<div>
@@ -52,7 +51,7 @@ export default class Mask extends Component {
 						getContainer={false}
 						style={{float:"left",zIndex:9999,}}
 						headerStyle={{fontWeight:"bolder"}}
-					
+
 					>
 						<GoodsAdd></GoodsAdd>
 						<UpdateModel></UpdateModel>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Steps, Button, message, Input, Select } from 'antd';
+import { Steps, Button, Input, Select } from 'antd';
 import { updateInquireList } from '../../../api/Inquire'
 const { Step } = Steps;
 

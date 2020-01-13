@@ -19,7 +19,7 @@ export class Updata extends Component {
     upload=()=>{
         let file = this.refs.file.files[0]
         if(!file) return message.info('选择图片',1)
-        let reader = new FileReader
+        let reader = new FileReader()
         reader.readAsDataURL(file)
         reader.onload=()=>{
             this.setState({img:reader.result})
@@ -44,7 +44,7 @@ export class Updata extends Component {
                 <div>
                     <p>缩略图:</p>
                     <input type="file" ref='file' />
-                    <img src={img} width='80' height='80' />
+                    <img src={img} width='80' height='80' alt="" />
                     <Button type="dashed" onClick={this.upload}>上传图片</Button>
                 </div>
                 <Button type="primary" block onClick={this.submit}>提交</Button>

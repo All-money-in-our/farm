@@ -1,5 +1,4 @@
 import axios from '../utils/axios'
-import {getItem} from '../utils/webStorage'
 // 获取商品列表
 
 export const GetGoods = async (page,pageSize)=>{
@@ -46,9 +45,9 @@ export const UpdateGood = async ({_id,name, Consumptiontime, imgUrl,Consumptionc
   }
 }
 //查询接口（分页查询  分类查询 关键字查询）
-export const Seach =async ({name})=>{
-  let url='/hehe/v1/admin/consum/getconsum'
-  let result = await axios.post(url,{name})
+export const Seach =async (Consumptioncategory)=>{
+  let url='/hehe/v1/admin/consum/getConsumsByType'
+  let result = await axios.post(url,{Consumptioncategory})
   if(result.err === 0){
     return result
   }else{

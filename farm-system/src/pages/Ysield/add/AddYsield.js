@@ -51,7 +51,7 @@ export class AddYsield extends Component {
                 <div>
                     <p>缩略图:</p>
                     <input type="file" ref='file' />
-                    <img src={img} width='80' height='80' />
+                    <img src={img} width='80' height='80' alt="" />
                     <Button type="dashed" onClick={this.upload}>上传图片</Button>
                 </div>
                 <Button type="primary" block onClick={this.submit}>提交</Button>

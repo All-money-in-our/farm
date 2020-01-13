@@ -407,7 +407,7 @@ class Weather extends Component{
                         <span>{weatherData.city.pname} {weatherData.city.name}</span>
                         <b>{weatherData.condition.Ftemp}</b>
                         <i className={styles.top_weather_wea}>
-                            <img src={`http://www.moji.com/templets/mojichina/images/weather/weather/w${weatherData.condition.Fprecip}.png`} />
+                            <img src={`http://www.moji.com/templets/mojichina/images/weather/weather/w${weatherData.condition.Fprecip}.png`}  alt="" />
                         </i>
                     </div>
                     <div className={`${styles.top_weather_hid} ${this.state.weatherShow ? styles.top_weather_hid_animation : styles.top_weather_hid_animation_leave}`} onMouseEnter={this.toggleShow} onMouseLeave={this.toggleHide} >

@@ -9,9 +9,7 @@ import {
 	Checkbox,
 	Input,
 	Modal,
-	Drawer
 } from "antd";
-import Mask from "./drawer";
 import styles from "./table.module.less";
 // 引入商品列表和删除接口方法
 import { GetGoods, DelGood, Seach } from "../../api/mei";
@@ -165,10 +163,8 @@ class Expend extends Component {
 	}
 	render() {
 		let {
-			dataSource,
 			allCount,
 			spinning,
-			drawerShow,
 			updataInfo
 		} = this.state;
 		return (
@@ -182,17 +178,17 @@ class Expend extends Component {
 					添加
 				</Button>
 				<Search
-					placeholder="input search text"
-					enterButton="查询"
-					
+					placeholder="分类查询"
+					// enterButton="查询"
+
 					size="large"
 					allowClear="true"
 					className={styles.inputWidth}
 					onSearch={value => {
 						Seach(value)
 						.then(data=>{
-							console.log(data)
-							this.GetTable(pageSize)
+							this.setState({dataSource:data.list.consum})
+
 						})
 					}}
 				/>

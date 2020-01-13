@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-import { Drawer, Button, Modal } from "antd";
-import { AddGood } from "./add/add";
-import Update from "./add/update";
+import { Button, Modal } from "antd";
 export default class UpdateModel extends Component {
     state = {
         modal1Visible: false,
         modal2Visible: false,
       };
-    
+
       setModal1Visible(modal1Visible) {
         this.setState({ modal1Visible });
       }
-    
+
       setModal2Visible(modal2Visible) {
         this.setState({ modal2Visible });
       }
-    
+
 	render() {
 		return (
             <div>

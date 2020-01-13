@@ -16,14 +16,47 @@ function onFocus() {
 }
 
 class SectionCreate extends Component {
+
+	componentDidMount() {
+		this.getTableData(1)
+	}
+	// 获取数据
+	getTableData(nowPage = 1) {
+		// 根据页数获取网络数据
+		this.setState({ spinning: true })
+		getSelections(nowPage, pageSize)
+			.then((res) => {
+				// console.log(res)
+				this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, spinning: false })
+			})
+			.catch((err) => {
+				console.log('接口出现错误', err)
+			})
+	}
+	// 删除数据
+	delTableData(id) {
+		//  网络请求
+		delSection(id).then(() => {
+			message.success('删除成功', 1)
+			// console.log(pageSize)
+			this.getTableData(this.state.nowPage)
+		})
+			.catch((err) => {
+				console.log('查询失败', err)
+			})
+	}
+
 	constructor() {
 		super()
+		this.state = {
+			spinning: false,
+			nowPage: 1,//当前页数
+			allCount: 0,//总数据条数
+			sectionData: [],
+			updataInfo: {},
+			name: '行政内勤部'
+		}
 		this.sectionColumns = [
-			// {
-			// 	title: '部门编号',
-			// 	dataIndex: '_id',
-			// 	key: '_id',
-			// },
 			{
 				title: '部门名称',
 				dataIndex: 'name',
@@ -70,6 +103,8 @@ class SectionCreate extends Component {
 								onConfirm={() => {
 									// console.log(this, data)
 									this.delTableData(data._id)
+									this.getTableData(this.state.nowPage)
+									console.log('第',this.state.nowPage,'页')
 								}}
 								okText='删除'
 								cancelText='取消'
@@ -81,36 +116,6 @@ class SectionCreate extends Component {
 				}
 			},
 		]
-		this.state = {
-			spinning: false,
-			nowPage: 1,//当前页数
-			allCount: 0,//总数据条数
-			sectionData: [],
-			updataInfo: {},
-			name: '行政内勤部'
-		}
-	}
-	componentDidMount() {
-		this.getTableData(1)
-	}
-	// 获取数据
-	getTableData(nowPage = 1) {
-		// 根据页数获取网络数据
-		this.setState({ spinning: true })
-		getSelections(nowPage, pageSize)
-			.then((res) => {
-				// console.log(res)
-				this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, spinning: false, page: res.list.page })
-			})
-	}
-	// 删除数据
-	delTableData(id) {
-		//  网络请求
-		delSection(id).then(() => {
-			message.success('删除成功', 1)
-			window.location.reload()
-			// this.getTableData()
-		})
 	}
 
 	render() {
@@ -124,12 +129,11 @@ class SectionCreate extends Component {
 					optionFilterProp="children"
 					onChange={(name) => {
 						// console.log(name)
-						getSectionsByName(name,nowPage = 1,pageSize).then((res) => {
-							console.log(res)
+						getSectionsByName(name).then((res) => {
+							// console.log(res)
 							message.success('查询成功', 1)
-							// window.location.reload()
 							// console.log(res.list.sections)
-							this.setState({ sectionData: res.list.sections, allCount: res.list.allCount, page: res.list.page })
+							this.setState({ sectionData: res.list.sections })
 						})
 					}
 						// this.getTableDataByType(name)
@@ -156,12 +160,12 @@ class SectionCreate extends Component {
 				</Spin>
 				<Pagination
 					className={styles.antPagination}
-					showQuickJumper
 					total={allCount}
 					pageSize={pageSize}
-					dafaultCurrent={nowPage}
 					onChange={(page) => {
 						this.getTableData(page)
+						this.setState({ nowPage: page})
+						console.log(page, nowPage)
 					}}
 				/>
 				<Drawer

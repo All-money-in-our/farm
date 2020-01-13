@@ -24,7 +24,7 @@ export class add extends Component {
     render() {
         let {name,price,img,cropType}=this.state
         return (
-            
+
             <Fragment>
                 name:<Input className={styles.input} value={name} type="text" onChange={(e) => {
                      this.setState({name:e.target.value})
@@ -41,7 +41,7 @@ export class add extends Component {
                 <option>粮食</option>
                 </select><br />
                 img:<input  ref="file" type="file" /><br />
-                <img src={img} width="100" height="80"/>
+                <img src={img} width="100" height="80" alt=""/>
                 <Button type="primary"
                     onClick={() => {
                         let file = this.refs.file.files[0]
